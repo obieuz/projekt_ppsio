@@ -5,9 +5,9 @@ from database.databaseService import DatabaseService
 
 
 class KorpoManager:
-    def __init__(self):
+    def __init__(self, host="localhost", user="root", password="maslo", database="korpo"):
         self.workers = []
-        self.DatabaseService = DatabaseService()
+        self.DatabaseService = DatabaseService(host, user, password, database)
 
         self.init_employees()
 

@@ -1,8 +1,6 @@
-from abc import ABC
-
 from classes.Worker import Worker
 
-class Menago(Worker, ABC):
+class Menago(Worker):
     def __init__(self,employee_id,name, surname, salary, workers, team_size, energy = 25):
         super().__init__(employee_id,name, surname, salary)
         self.workers = workers

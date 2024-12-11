@@ -13,7 +13,7 @@ class DatabaseService:
 
     def add_manager(self, manager):
         if not isinstance(manager, Menago):
-            raise ValueError("Manager must be instance of Menago class")
+            raise ValueError("Halo Prosze Pana to toaleta tylko dla Menadżerów(Obiekt employee musi byc obiektem klasy Menago)")
 
         with mysql.connector.connect(
                 host=self.host,
@@ -36,7 +36,7 @@ class DatabaseService:
 
     def add_robol(self, robol):
         if not isinstance(robol, Robol):
-            raise ValueError("Worker must be instance of Worker class")
+            raise ValueError("Pan to nie jest sam swoj(Obiekt ktoey podałeś nie jest obiektem klasy Robol)")
         with mysql.connector.connect(
                 host=self.host,
                 user=self.user,
@@ -64,7 +64,7 @@ class DatabaseService:
             self.add_manager(employee)
 
         else:
-            raise ValueError("Employee must be instance of Worker or Menago class")
+            raise ValueError("A co Pan tu robi, Pan tu nje pracuje(musisz byc obiektem Menago albo Robol)")
 
     def get_robols(self):
         with mysql.connector.connect(
@@ -126,7 +126,7 @@ class DatabaseService:
                     SELECT * FROM employees WHERE id = %s
                 """, (employee.employee_id,))
                 if cursor.fetchone() is None:
-                    raise ValueError("Employee does not exist")
+                    raise ValueError("Dzień Dobry, potrzebuje Pani telewizora?; Nie!; To zaraz wejdziemy z kolega zabrac; (Pracownik do edytowania nie istnieje")
 
         self.remove_employee(employee)
         self.add_employee(employee)
